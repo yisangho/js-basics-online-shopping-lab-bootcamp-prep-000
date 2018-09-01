@@ -92,13 +92,14 @@ function removeFromCart(itemName) {
 
     for ( ; i < length ; i++ ) {
       tmpObj = cart[i];
-      console.log("itemName:"+tmpObj['itemName']);
-      total += tmpObj['itemName'];
-
+      if (tmpObj['itemName'] == itemName) {
+        cart.splice(i,1);
+        return cart;
+      }
     }
   }
 
-  return total;
+  return msg = "That item is not in your cart.";
 }
 
 function placeOrder(cardNumber) {
